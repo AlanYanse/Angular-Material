@@ -10,6 +10,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class LoginComponent implements OnInit {
 
   form: FormGroup;
+  loading: boolean = false;
 
   constructor(private formBuilder: FormBuilder, private _snackBar: MatSnackBar) {
       this.form = this.formBuilder.group({
@@ -38,6 +39,7 @@ export class LoginComponent implements OnInit {
 
     if(fakeUser === usuario && fakePass === password){
       // Al dashboard
+      this.fakeLoading();
     }else{
       // mensaje de error
       this.error();
@@ -51,8 +53,20 @@ export class LoginComponent implements OnInit {
       duration: 4000,
       horizontalPosition: "center",
       verticalPosition: "top"
-    })
+    });
 
+    this.form.reset();
+
+  }
+
+  fakeLoading(){
+    
+    this.loading = true;
+    setTimeout(()=>{
+
+      this.loading = false;
+
+    }, 3000);
   }
 
 }
