@@ -1,17 +1,24 @@
 <div class="body">
     <div class="login">
-        <img src="../../../assets/img/user.png" alt="user">
-        <h1>login</h1>
-        <mat-form-field class="ancho" appearance="fill">
-            <mat-label>User</mat-label>
-            <input matInput autocomplete="off">
-        </mat-form-field>
-        <mat-form-field class="ancho" appearance="fill">
-            <mat-label>Password</mat-label>
-            <input matInput autocomplete="off">
-        </mat-form-field>
-        <br>
-        <button mat-raised-button color="primary" class="ancho button" >LogIn</button>
+        <mat-spinner class="spinner" *ngIf="loading"></mat-spinner>
+        
+        <form [formGroup]="form" (ngSubmit)="ingresar()" *ngIf="!loading"> <!--Binding para enlazar las propiedades generales del formulario-->
+            
+            <img src="../../../assets/img/user.png" alt="user">
+            <h1>login</h1>
+            <mat-form-field class="ancho" appearance="fill">
+                <mat-label>User</mat-label>
+                <input matInput autocomplete="off" formControlName="usuario"> <!--formControlName para enlazar las variables-->
+            </mat-form-field>
+                <mat-form-field class="ancho" appearance="fill">
+                <mat-label>Password</mat-label>
+            <input type="password" matInput autocomplete="off" formControlName="password">
+            </mat-form-field>
+            <br>
+            <button type="submit" mat-raised-button color="primary" class="ancho button" [disabled]="form.invalid" >LogIn</button>
+
+        </form>
+        
     </div>
     
 </div>
