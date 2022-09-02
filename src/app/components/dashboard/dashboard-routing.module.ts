@@ -4,12 +4,14 @@ import { InicioComponent } from '../inicio/inicio.component';
 import { ReportesComponent } from '../reportes/reportes.component';
 import { UsuariosComponent } from '../usuarios/usuarios.component';
 import { DashboardComponent } from './dashboard.component';
+import { CrearUsuarioComponent } from './usuarios/crear-usuario.component';
 
 const routes: Routes = [
   {path: "", component: DashboardComponent, children: [
     {path: "", component: InicioComponent},
     {path: "usuarios", component: UsuariosComponent},
     {path: "reportes", component: ReportesComponent},
+    {path: "crear-usuario", component: CrearUsuarioComponent}
 
   ]}
 ];

@@ -5,12 +5,14 @@ import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardComponent } from './dashboard.component';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { SharedModule } from '../shared/shared.module';
+import { CrearUsuarioComponent } from './usuarios/crear-usuario.component';
 
 
 @NgModule({
   declarations: [
     DashboardComponent,
-    NavbarComponent
+    NavbarComponent,
+    CrearUsuarioComponent
   ],
   imports: [
     CommonModule,
